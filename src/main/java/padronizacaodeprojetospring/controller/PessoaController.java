@@ -26,11 +26,19 @@ public class PessoaController {
     // DONE Faced: Abstrair integrações com subsistemas, provendo uma interface simples (Encontra-se na classe APIPessoas).
     // DONE - Strategy: implementar todos os metodos definidos na interface. (Encontra-se na classe APILocalDePessoas).
 
+
+    // Para listar todas as pessoas.
     @GetMapping
     public List<Pessoa> buscarTodos() {
         return servicoPessoa.getPessoas();
     }
 
+    // Para inserir uma nova pessoa.
+    @PostMapping("/add")
+    public void PessoaAdd(@RequestBody Pessoa pessoa) {
+        servicoPessoa.getPessoas().add(pessoa);
+        System.out.println("Pessoa adicionada!");
+    }
 
     /*@GetMapping("pessoa/{id}")
     public void buscarPorId(@PathVariable Long id) {
@@ -42,11 +50,7 @@ public class PessoaController {
     public void deletar(@PathVariable Long id) {
 //        servicoPessoa.deletar(id);
         System.out.println("Deletado com sucesso!");
-    }
-
-    @PostMapping("/add")
-    public void PessoaAdd(@RequestBody Pessoa pessoa) {
-        pessoas.GetPessoas().add(pessoa);
-        System.out.println("Pessoa adicionada!");
     }*/
+
+
 }
