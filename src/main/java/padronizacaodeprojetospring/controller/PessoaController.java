@@ -14,16 +14,17 @@ public class PessoaController {
 
     @Autowired
     ServicoPessoa servicoPessoa;
+    List<Pessoa> pessoas_ = new ArrayList<>();
+
 
 
     @GetMapping()
     public List<Pessoa> buscarTodos() {
-        List<Pessoa> pessoas_ = new ArrayList<>();
-            pessoas_.add(new Pessoa(11L, "Miguel", 22));
-            pessoas_.add(new Pessoa(23L, "Joao", 17));
-            pessoas_.add(new Pessoa(41L, "Miguel", 32));
-            pessoas_.add(new Pessoa(51L, "Carlinhos", 42));
-            pessoas_.add(new Pessoa(84L, "Jorel", 51));
+        pessoas_.add(new Pessoa(11L, "Miguel", 22));
+        pessoas_.add(new Pessoa(23L, "Joao", 17));
+        pessoas_.add(new Pessoa(41L, "Miguel", 32));
+        pessoas_.add(new Pessoa(51L, "Carlinhos", 42));
+        pessoas_.add(new Pessoa(84L, "Jorel", 51));
         return pessoas_;
     }
 
@@ -42,6 +43,7 @@ public class PessoaController {
 
     @PostMapping("/add")
     public void PessoaAdd(@RequestBody Pessoa pessoa) {
+        pessoas_.add(pessoa);
         System.out.println("Pessoa adicionada!");;
     }
 }
