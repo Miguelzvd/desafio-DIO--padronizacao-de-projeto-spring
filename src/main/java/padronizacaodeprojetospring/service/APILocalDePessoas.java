@@ -22,6 +22,7 @@ public class APILocalDePessoas implements ServicoPessoa{
         super();
     }
 
+
     @Override
     public List<Pessoa> getPessoas() {
         return pessoas_;

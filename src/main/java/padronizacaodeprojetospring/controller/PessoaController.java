@@ -34,11 +34,14 @@ public class PessoaController {
     }
 
     // Para inserir uma nova pessoa.
+    // Este metodo ainda não funciona.
     @PostMapping("/add")
     public void PessoaAdd(@RequestBody Pessoa pessoa) {
         servicoPessoa.getPessoas().add(pessoa);
-        System.out.println("Pessoa adicionada!");
+        System.out.println("Pessoa adicionada!");;
     }
+
+    // Metodos para servicoPessoa, para api externa.
 
     /*@GetMapping("pessoa/{id}")
     public void buscarPorId(@PathVariable Long id) {
