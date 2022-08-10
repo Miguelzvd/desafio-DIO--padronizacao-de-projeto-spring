@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 import padronizacaodeprojetospring.model.Pessoa;
 import padronizacaodeprojetospring.service.ServicoPessoa;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -14,15 +15,16 @@ public class PessoaController {
     @Autowired
     ServicoPessoa servicoPessoa;
 
-    /*private List<Pessoa> pessoas_ = List.of(
-            new Pessoa(11L, "Miguel", 22),
-            new Pessoa(13L, "João", 33),
-            new Pessoa(18L, "Carlos", 40),
-            new Pessoa(20L, "Andre", 27));*/
 
-    @GetMapping
-    public Iterable<Pessoa> buscarTodos() {
-        return servicoPessoa.buscarTodos();
+    @GetMapping()
+    public List<Pessoa> buscarTodos() {
+        List<Pessoa> pessoas_ = new ArrayList<>();
+            pessoas_.add(new Pessoa(11L, "Miguel", 22));
+            pessoas_.add(new Pessoa(23L, "Joao", 17));
+            pessoas_.add(new Pessoa(41L, "Miguel", 32));
+            pessoas_.add(new Pessoa(51L, "Carlinhos", 42));
+            pessoas_.add(new Pessoa(84L, "Jorel", 51));
+        return pessoas_;
     }
 
 
@@ -36,5 +38,10 @@ public class PessoaController {
     public void deletar(@PathVariable Long id) {
         servicoPessoa.deletar(id);
         System.out.println("Deletado com sucesso!");
+    }
+
+    @PostMapping("/add")
+    public void PessoaAdd(@RequestBody Pessoa pessoa) {
+        System.out.println("Pessoa adicionada!");;
     }
 }

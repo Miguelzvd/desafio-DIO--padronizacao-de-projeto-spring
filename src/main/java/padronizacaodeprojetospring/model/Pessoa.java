@@ -1,10 +1,12 @@
 package padronizacaodeprojetospring.model;
 
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.web.bind.annotation.GetMapping;
 
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -14,6 +16,9 @@ public class Pessoa {
     private Long id;
     private String nome;
     private Integer idade;
+
+
+
 
     public Pessoa() {
 
