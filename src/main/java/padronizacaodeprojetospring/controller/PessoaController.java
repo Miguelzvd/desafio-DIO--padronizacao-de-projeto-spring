@@ -1,8 +1,11 @@
 package padronizacaodeprojetospring.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import padronizacaodeprojetospring.model.Pessoa;
+import padronizacaodeprojetospring.service.APILocalDePessoas;
+import padronizacaodeprojetospring.service.APIPessoas;
 import padronizacaodeprojetospring.service.ServicoPessoa;
 
 import java.util.ArrayList;
@@ -12,38 +15,38 @@ import java.util.List;
 @RequestMapping("pessoas")
 public class PessoaController {
 
+
+    /*@Autowired
+    APIPessoas apiPessoas;*/
+
+    // DONE Singleton: Injetar os componentes do spring utilizando @Autowired.
     @Autowired
     ServicoPessoa servicoPessoa;
-    List<Pessoa> pessoas_ = new ArrayList<>();
 
+    // DONE Faced: Abstrair integrações com subsistemas, provendo uma interface simples (Encontra-se na classe APIPessoas).
+    // DONE - Strategy: implementar todos os metodos definidos na interface. (Encontra-se na classe APILocalDePessoas).
 
-
-    @GetMapping()
+    @GetMapping
     public List<Pessoa> buscarTodos() {
-        pessoas_.add(new Pessoa(11L, "Miguel", 22));
-        pessoas_.add(new Pessoa(23L, "Joao", 17));
-        pessoas_.add(new Pessoa(41L, "Miguel", 32));
-        pessoas_.add(new Pessoa(51L, "Carlinhos", 42));
-        pessoas_.add(new Pessoa(84L, "Jorel", 51));
-        return pessoas_;
+        return servicoPessoa.getPessoas();
     }
 
 
-    @GetMapping("pessoas/pessoa/{id}")
-    public Pessoa buscarPorId(@PathVariable Long id) {
-        return servicoPessoa.buscarPorId(id);
+    /*@GetMapping("pessoa/{id}")
+    public void buscarPorId(@PathVariable Long id) {
+//        return servicoPessoa.buscarPorId(id);
     }
 
 
-    @DeleteMapping("pessoas/pessoa/{id}")
+    @DeleteMapping("pessoa/{id}")
     public void deletar(@PathVariable Long id) {
-        servicoPessoa.deletar(id);
+//        servicoPessoa.deletar(id);
         System.out.println("Deletado com sucesso!");
     }
 
     @PostMapping("/add")
     public void PessoaAdd(@RequestBody Pessoa pessoa) {
-        pessoas_.add(pessoa);
-        System.out.println("Pessoa adicionada!");;
-    }
+        pessoas.GetPessoas().add(pessoa);
+        System.out.println("Pessoa adicionada!");
+    }*/
 }

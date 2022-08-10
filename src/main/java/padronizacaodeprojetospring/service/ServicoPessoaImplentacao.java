@@ -8,8 +8,8 @@ import padronizacaodeprojetospring.model.PessoaRepository;
 import java.util.Optional;
 
 @Component
-public class ServicoPessoaImplentacao implements ServicoPessoa {
-
+public class ServicoPessoaImplentacao{
+/*
     // DONE Singleton: Injetar os componentes do spring utilizando @Autowired.
     @Autowired
     PessoaRepository pessoaRepository;
@@ -35,6 +35,6 @@ public class ServicoPessoaImplentacao implements ServicoPessoa {
     public void deletar(Long id) {
         // Deletar Cliente por ID.
         pessoaRepository.deleteById(id);
-    }
+    }*/
 
 }

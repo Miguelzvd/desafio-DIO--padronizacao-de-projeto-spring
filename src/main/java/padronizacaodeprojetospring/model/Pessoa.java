@@ -18,8 +18,6 @@ public class Pessoa {
     private Integer idade;
 
 
-
-
     public Pessoa() {
 
     }
