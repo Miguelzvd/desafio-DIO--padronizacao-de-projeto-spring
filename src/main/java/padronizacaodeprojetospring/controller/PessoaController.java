@@ -1,23 +1,14 @@
 package padronizacaodeprojetospring.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import padronizacaodeprojetospring.model.Pessoa;
-import padronizacaodeprojetospring.service.APILocalDePessoas;
-import padronizacaodeprojetospring.service.APIPessoas;
+import padronizacaodeprojetospring.model.PessoaRepository;
 import padronizacaodeprojetospring.service.ServicoPessoa;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @RestController
-@RequestMapping("pessoas")
 public class PessoaController {
 
-
-    /*@Autowired
-    APIPessoas apiPessoas;*/
 
     // DONE Singleton: Injetar os componentes do spring utilizando @Autowired.
     @Autowired
@@ -28,32 +19,30 @@ public class PessoaController {
 
 
     // Para listar todas as pessoas.
-    @GetMapping
-    public List<Pessoa> buscarTodos() {
-        return servicoPessoa.getPessoas();
+    @GetMapping("/pessoa")
+    public Iterable<Pessoa> buscarTodos() {
+        return servicoPessoa.buscarTodos();
     }
 
     // Para inserir uma nova pessoa.
-    // Este metodo ainda não funciona.
-    @PostMapping("/add")
-    public void PessoaAdd(@RequestBody Pessoa pessoa) {
-        servicoPessoa.getPessoas().add(pessoa);
-        System.out.println("Pessoa adicionada!");;
+    @PostMapping("/pessoa")
+    public void pessoaAdd(@RequestBody Pessoa pessoa) {
+        servicoPessoa.salvarPessoa(pessoa);
+        System.out.println("Pessoa adicionada!");
     }
 
     // Metodos para servicoPessoa, para api externa.
 
-    /*@GetMapping("pessoa/{id}")
-    public void buscarPorId(@PathVariable Long id) {
-//        return servicoPessoa.buscarPorId(id);
+    @GetMapping("/pessoa/{id}")
+    public Pessoa buscarPorId(@PathVariable Long id) {
+        return servicoPessoa.buscarPorId(id);
     }
 
 
-    @DeleteMapping("pessoa/{id}")
+    @DeleteMapping("/pessoa/{id}")
     public void deletar(@PathVariable Long id) {
-//        servicoPessoa.deletar(id);
-        System.out.println("Deletado com sucesso!");
-    }*/
-
+        servicoPessoa.deletar(id);
+        System.out.println("Pessoa deletada com sucesso!");
+    }
 
 }

@@ -10,10 +10,11 @@ import java.util.List;
 @Service
 public interface ServicoPessoa {
 
-    List<Pessoa> getPessoas();
-    /*Iterable<Pessoa> buscarTodos();
+    Iterable<Pessoa> buscarTodos();
 
     Pessoa buscarPorId(Long id);
 
-    void deletar(Long pessoa);*/
+    void salvarPessoa(Pessoa pessoa);
+
+    void deletar(Long pessoa);
 }
