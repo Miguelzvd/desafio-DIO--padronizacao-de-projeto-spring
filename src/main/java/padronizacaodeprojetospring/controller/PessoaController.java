@@ -3,6 +3,7 @@ package padronizacaodeprojetospring.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import padronizacaodeprojetospring.model.Pessoa;
+import padronizacaodeprojetospring.service.APIPessoas;
 import padronizacaodeprojetospring.service.ServicoPessoa;
 
 @RestController
@@ -12,12 +13,20 @@ public class PessoaController {
     @Autowired
     ServicoPessoa servicoPessoa;
 
+    @Autowired
+    APIPessoas apiPessoas;
     // DONE Faced: Abstrair integrações com subsistemas, provendo uma interface simples (Encontra-se na classe APIPessoas).
     // DONE - Strategy: implementar todos os metodos definidos na interface. (Encontra-se na classe APILocalDePessoas).
 
 
+    //PARA CONSUMIR API LOCAL
+    @GetMapping("/APILocal")
+    public Iterable<Pessoa> buscarTodosAPILOCAL() {
+        return apiPessoas.getPessoas();
+    }
+
     // Para listar todas as pessoas.
-    @GetMapping("/pessoa")
+    @GetMapping("/pessoas")
     public Iterable<Pessoa> buscarTodos() {
         return servicoPessoa.buscarTodos();
     }
