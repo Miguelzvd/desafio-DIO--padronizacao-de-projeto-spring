@@ -1,5 +1,5 @@
-/* Para iniciar a API é necessario que abra o prompt de comando na pasta do deste arquivo e
-   dê o seguinte comando: json-server --watch db.json*/
+// Para iniciar a API é necessario que abra o prompt de comando na pasta do deste arquivo e
+// dê o seguinte comando: json-server --watch db.json*/
 
 //PARA A API FUNCINAR, ANTES DE INICIA-LA DELETE O TEXTO DE INSTRUÇÕES, INCLUSIVE ESSE TEXTO.
 
