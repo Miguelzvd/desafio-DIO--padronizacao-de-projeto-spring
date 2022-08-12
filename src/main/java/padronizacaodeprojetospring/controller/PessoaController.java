@@ -3,7 +3,6 @@ package padronizacaodeprojetospring.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import padronizacaodeprojetospring.model.Pessoa;
-import padronizacaodeprojetospring.model.PessoaRepository;
 import padronizacaodeprojetospring.service.ServicoPessoa;
 
 @RestController
