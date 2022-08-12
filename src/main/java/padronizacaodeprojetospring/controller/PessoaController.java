@@ -8,7 +8,6 @@ import padronizacaodeprojetospring.service.ServicoPessoa;
 @RestController
 public class PessoaController {
 
-
     // DONE Singleton: Injetar os componentes do spring utilizando @Autowired.
     @Autowired
     ServicoPessoa servicoPessoa;
@@ -30,14 +29,14 @@ public class PessoaController {
         System.out.println("Pessoa adicionada!");
     }
 
-    // Metodos para servicoPessoa, para api externa.
-
+    // Busca pessoa pelo id atraves do path variable
     @GetMapping("/pessoa/{id}")
     public Pessoa buscarPorId(@PathVariable Long id) {
         return servicoPessoa.buscarPorId(id);
     }
 
 
+    // Deleta pessoa pelo id
     @DeleteMapping("/pessoa/{id}")
     public void deletar(@PathVariable Long id) {
         servicoPessoa.deletar(id);
